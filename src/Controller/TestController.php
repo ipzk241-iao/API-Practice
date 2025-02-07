@@ -45,7 +45,6 @@ class TestController extends AbstractController
         ], Response::HTTP_OK);
     }
 
-
     #[Route('/users/{id}', name: 'app_item_users', methods: ['GET'])]
     public function getItem(string $id): JsonResponse
     {
@@ -56,7 +55,6 @@ class TestController extends AbstractController
         ], Response::HTTP_OK);
     }
 
-    #[IsGranted('ROLE_ADMIN')]
     #[Route('/users', name: 'app_create_users', methods: ['POST'])]
     public function createItem(Request $request): JsonResponse
     {
@@ -104,6 +102,7 @@ class TestController extends AbstractController
         return new JsonResponse(['data' => $userData], Response::HTTP_OK);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     public function findUserById(string $id)
     {
         $userData = null;
