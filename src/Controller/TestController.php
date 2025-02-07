@@ -101,8 +101,7 @@ class TestController extends AbstractController
 
         return new JsonResponse(['data' => $userData], Response::HTTP_OK);
     }
-
-    #[IsGranted('ROLE_ADMIN')]
+    
     public function findUserById(string $id)
     {
         $userData = null;
